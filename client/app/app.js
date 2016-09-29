@@ -6,7 +6,7 @@ angular.module('globalesApp', [
   'ngSanitize',
   'ngAnimate',
   'ngMessages',
-  'ngRoute',
+  'ui.router',
   'ngMaterial'
 ])
   .config(function($mdIconProvider) {
@@ -29,11 +29,9 @@ angular.module('globalesApp', [
       .iconSet('toggle', '../assets/iconsets/toggle-icons.svg', 24)
       .iconSet('avatar', '../assets/iconsets/avatar-icons.svg', 128);
   })
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $urlRouterProvider
+      .otherwise('/main');
 
     $locationProvider.html5Mode(true);
   });

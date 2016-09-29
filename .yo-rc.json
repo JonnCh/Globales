@@ -13,7 +13,7 @@
       "js": true,
       "html": true,
       "sass": true,
-      "ngroute": true,
+      "uirouter": true,
       "material": true
     }
   },
@@ -25,7 +25,7 @@
     "basePath": "client",
     "moduleName": "",
     "filters": [
-      "ngroute"
+      "uirouter"
     ],
     "extensions": [
       "babel",

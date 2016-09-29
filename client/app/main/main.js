@@ -1,10 +1,15 @@
 'use strict';
 
 angular.module('globalesApp')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+.config(function ($stateProvider) {
+    $stateProvider
+      .state('main', {
+        url: '/main',
+        views: {
+            'main-content': {
+              templateUrl: 'app/main/main.html',
+              controller: 'MainCtrl'
+             }
+        }
       });
   });
