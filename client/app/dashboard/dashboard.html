@@ -1,0 +1,63 @@
+<div id=dashboard layout="row" layout-fill>
+  <div layout="column" layout-fill>
+    <md-toolbar>
+
+      <div class="md-toolbar-tools">
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+          <md-button class="md-icon-button" aria-label="Barra lateral" ng-click="toggleLeft()">
+            <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
+          </md-button>
+        </section>
+        <span>Globales</span>
+
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+        <md-button class="md-raised" href="/start">Salir
+        </md-button>
+      </div>
+
+    </md-toolbar>
+    <div layout="row" flex>
+      <div layout="column"  ng-cloak>
+
+        <section layout="row" flex>
+
+          <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+
+            <md-toolbar class="md-theme-indigo">
+              <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+
+            <md-content >
+              <md-list flex>
+
+                <md-list-item ng-click="null" ui-sref="questions({theme: 'Math'})" class="noright">
+                  <p>Practicar Matematica</p>
+                </md-list-item>
+                <md-list-item ng-click="null" ui-sref="questions({theme: 'Grammar'})" class="noright">
+                  <p>Practicar Español</p>
+                </md-list-item>
+                <md-list-item ng-click="null" class="noright">
+                  <p>Puntajes</p>
+                </md-list-item>
+                <md-list-item ng-click="null" class="noright">
+                  <p>Perfil</p>
+                </md-list-item>
+              </md-content>
+
+            </md-sidenav>
+
+            <md-content flex layout-padding>
+
+            </md-content>
+
+          </section>
+
+        </div>
+        <div ui-view="dashboard-content" layout="column" layout-fill>
+
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -4,11 +4,11 @@ angular.module('globalesApp')
 .config(function ($stateProvider) {
   $stateProvider
     .state('questions', {
-      url: '/questions',
-      parent: 'main',
+      url: '/:questions?theme',
+      parent: 'dashboard',
       views: {
-          'questions-content@main': {
-               templateUrl: 'app/questions/questions.html',
+          'dashboard-content@dashboard': {
+               templateUrl: 'app/dashboard/questions/questions.html',
                controller: 'QuestionsCtrl'
            }
       }

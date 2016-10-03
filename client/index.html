@@ -29,7 +29,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view="main-content"></div>
+    <div ui-view="main-content" layout="row" layout-fill></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -67,12 +67,16 @@
 
         <script src="app/app.js"></script>
           <!-- injector:js -->
-          <script src="app/main/main.controller.js"></script>
-          <script src="app/main/main.js"></script>
-          <script src="app/questions/questions.controller.js"></script>
-          <script src="app/questions/questions.js"></script>
-          <script src="components/shell/dialog/dialog.controller.js"></script>
-          <script src="components/shell/shell.controller.js"></script>
+          <script src="app/dashboard/dashboard.controller.js"></script>
+          <script src="app/dashboard/dashboard.js"></script>
+          <script src="app/dashboard/questions/questions.controller.js"></script>
+          <script src="app/dashboard/questions/questions.js"></script>
+          <script src="app/start/login/login.controller.js"></script>
+          <script src="app/start/login/login.js"></script>
+          <script src="app/start/singup/singup.controller.js"></script>
+          <script src="app/start/singup/singup.js"></script>
+          <script src="app/start/start.controller.js"></script>
+          <script src="app/start/start.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>

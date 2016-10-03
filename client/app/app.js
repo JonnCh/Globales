@@ -31,7 +31,7 @@ angular.module('globalesApp', [
   })
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/main');
+      .otherwise('/start');
 
     $locationProvider.html5Mode(true);
   });

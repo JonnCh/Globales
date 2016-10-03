@@ -1,0 +1,33 @@
+<md-card>
+    <form ng-submit="singup()">
+        <md-toolbar style="background-color:rgb(80,80,80);">
+            <div class="md-toolbar-tools">
+                <span>Formulario de registro</span>
+            </div>
+        </md-toolbar>
+        <md-card-content layout="row" layout-align="space-between">
+            <div flex>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Nombre</label>
+                        <input ng-model="user.Name" required>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                      <label>Nombre de Usuario</label>
+                      <input ng-model="user.UserName"  required>
+                  </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Contraseña</label>
+                        <input ng-model="user.Password" required>
+                    </md-input-container>
+                </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" type='submit'>Aceptar</md-button>
+            <md-button class="md-raised md-primary">Cancelar</md-button>
+        </md-card-actions>
+    </form>
+</md-card>

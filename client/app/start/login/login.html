@@ -1,0 +1,37 @@
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+    <form ng-submit="login()">
+      <md-toolbar style="background-color:rgb(80,80,80);">
+          <div class="md-toolbar-tools">
+              <span class="md-headline">Ingreso al sistema</span>
+          </div>
+      </md-toolbar>
+        <md-card-content layout="row" layout-align="space-between">
+            <div flex>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex>
+                        <label>Nombre de usuario</label>
+                        <input ng-model="form.UserName"  maxlength="100" required>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex>
+                        <label>Contraseña</label>
+                        <input type="password"  ng-model="form.Password" minlength="8" required>
+                    </md-input-container>
+
+                </div>
+            </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+             <div layout="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                                <md-button class="md-raised md-primary" type="submit">Aceptar</md-button>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                            <md-button class="md-raised md-primary">Cancelar</md-button>
+                    </md-input-container>
+
+             </div>
+        </md-card-actions>
+    </form>
+</md-card>

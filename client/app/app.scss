@@ -15,6 +15,9 @@
 
 // Component styles are injected through grunt
 // injector
-@import 'main/main.scss';
-@import 'questions/questions.scss';
+@import 'dashboard/dashboard.scss';
+@import 'dashboard/questions/questions.scss';
+@import 'start/login/login.scss';
+@import 'start/singup/singup.scss';
+@import 'start/start.scss';
 // endinjector
