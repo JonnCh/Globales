@@ -6,7 +6,7 @@
     <md-card-content layout="column" layout-align="space-between">
       <div layout="row"  layout-fill>
         <div layout"row">
-            <label ng-bind="currentQuestion.question"></label>
+            <label ng-bind="currentQuestion.Question"></label>
         </div>
       </div>
       <br/>
@@ -14,8 +14,11 @@
       <br/>
       <div layout="row"  layout-fill>
         <div layout"row">
-            <md-radio-group ng-repeat="option in currentQuestion.options" require>
-              <md-radio-button ng-model="currentAnswer" ng-value="{{option}}" class="md-primary">{{option}}</md-radio-button>
+            <md-radio-group ng-model="currentAnswer" require>
+              <md-radio-button ng-value="currentQuestion.Option1" class="md-primary" require>{{currentQuestion.Option1}}</md-radio-button>
+              <md-radio-button ng-value="currentQuestion.Option2" class="md-primary" require>{{currentQuestion.Option2}}</md-radio-button>
+              <md-radio-button ng-value="currentQuestion.Option3" class="md-primary" require>{{currentQuestion.Option3}}</md-radio-button>
+              <md-radio-button ng-value="currentQuestion.Option4" class="md-primary" require>{{currentQuestion.Option4}}</md-radio-button>
             </md-radio-group>
         </div>
       </div>

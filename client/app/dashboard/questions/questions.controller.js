@@ -1,41 +1,53 @@
 'use strict';
 
 angular.module('globalesApp')
-.controller('QuestionsCtrl', function ($scope, $stateParams) {
+.controller('QuestionsCtrl', function ($scope, $stateParams, $http, $mdDialog) {
   $scope.theme = $stateParams.theme;
-  $scope.questions=[
-    {
-      "question":" 1 + 1 ?",
-      "options":[1,2,3,4],
-      "answer":2
-    },
-    {
-      "question":" 2 + 2 ?",
-      "options":[2,3,4,5],
-      "answer":4
-    },
-    {
-      "question":" 3 + 3 ?",
-      "options":[5,6,9,8],
-      "answer":8
-    }
-  ];
+  $scope.questions = [];
   $scope.currentQuestionIndex = 0;
-  $scope.currentQuestion =   $scope.questions[$scope.currentQuestionIndex];
+  $scope.currentQuestion;
   $scope.currentAnswer;
 
+  $scope.userId =1;
+
+  var loadQuestions = function(){
+    $http.get("/api/questions/MathQuestions?UserId="+$scope.userId)
+		      	.then(
+		        function success(response){
+		        	$scope.questions = response.data;
+              $scope.currentQuestion = 	$scope.questions[$scope.currentQuestionIndex];
+		        },
+		        function error(data, status){
+		          console.log("error: "+status);
+		        }
+      		);
+  }
+  var showAlert = function(text) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('#popupContainer')))
+        .clickOutsideToClose(true)
+        .title(text)
+        .ok('OK')
+    );
+  };
+
   $scope.answerCurrentQuestion= function(){
-    if($scope.currentAnswer == $scope.currentQuestion.answer){
-      alert('Respuesta correcta');
+    if($scope.currentAnswer == $scope.currentQuestion.Answer){
+      showAlert('Respuesta correcta');
+      $scope.currentQuestionIndex++;
+      if($scope.currentQuestionIndex < $scope.questions.length){
+        $scope.currentQuestion =   $scope.questions[$scope.currentQuestionIndex];
+      }
+      else {
+        showAlert('práctica terminada');
+        $scope.questions ={};
+        $scope.currentQuestion ={};
+      }
     }else{
-      alert('Respuestas Incorrecta');
-    }
-    $scope.currentQuestionIndex++;
-    if($scope.currentQuestionIndex < $scope.questions.length){
-      $scope.currentQuestion =   $scope.questions[$scope.currentQuestionIndex];
-    }
-    else {
-      alert('práctica terminada');
+      showAlert('Respuestas Incorrecta');
     }
   }
+
+  loadQuestions();
 });
