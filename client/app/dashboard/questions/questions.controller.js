@@ -3,7 +3,9 @@
 angular.module('globalesApp')
 .controller('QuestionsCtrl', function ($scope, $stateParams, $http, $mdDialog) {
   $scope.theme = $stateParams.theme;
+  $scope.themeTitle = $scope.theme == 'Math'? "Práctica de Matematica":"Práctica de Gramatica";
   $scope.questions = [];
+  $scope.showQuestions =false;
   $scope.currentQuestionIndex = 0;
   $scope.currentQuestion;
   $scope.currentAnswer;
@@ -11,16 +13,37 @@ angular.module('globalesApp')
   $scope.userId =1;
 
   var loadQuestions = function(){
-    $http.get("/api/questions/MathQuestions?UserId="+$scope.userId)
-		      	.then(
-		        function success(response){
-		        	$scope.questions = response.data;
-              $scope.currentQuestion = 	$scope.questions[$scope.currentQuestionIndex];
-		        },
-		        function error(data, status){
-		          console.log("error: "+status);
-		        }
-      		);
+    if($scope.theme == 'Math'){
+      $http.get("/api/questions/MathQuestions?UserId="+$scope.userId)
+              .then(
+              function success(response){
+                if(response.data.length>0){
+                  $scope.questions = response.data;
+                  $scope.currentQuestion = 	$scope.questions[$scope.currentQuestionIndex];
+                  $scope.showQuestions = true;
+                }
+              },
+              function error(data, status){
+                console.log("error: "+status);
+              }
+            );
+    }
+    else
+    if($scope.theme == 'Grammar'){
+      $http.get("/api/questions/GrammarQuestions?UserId="+$scope.userId)
+              .then(
+              function success(response){
+                if(response.data.length>0){
+                  $scope.questions = response.data;
+                  $scope.currentQuestion = 	$scope.questions[$scope.currentQuestionIndex];
+                  $scope.showQuestions = true;
+                }
+              },
+              function error(data, status){
+                console.log("error: "+status);
+              }
+            );
+    }
   }
   var showAlert = function(text) {
     $mdDialog.show(
@@ -41,6 +64,7 @@ angular.module('globalesApp')
       }
       else {
         showAlert('práctica terminada');
+        $scope.showQuestions = false;
         $scope.questions ={};
         $scope.currentQuestion ={};
       }

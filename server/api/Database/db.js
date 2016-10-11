@@ -12,7 +12,7 @@ function createConnection() {
 exports.userMathQuestions = function(User, callback){
   var conn = createConnection();
   conn.connect();
-  var sql = "select questions.Id,questions.Question,questions.Option1,questions.Option2,questions.Option3,questions.Option4,questions.Answer from questions,users where questions.Id >=users.MathQuestionIndex && questions.Theme ='Math' && users.Id ="+User;
+  var sql = "select questions.Id,questions.Question,questions.Option1,questions.Option2,questions.Option3,questions.Option4,questions.Option5,questions.Answer from questions,users where questions.Id >=users.MathQuestionIndex && questions.Theme ='Math' && users.Id ="+User;
   console.log(sql);
   conn.query(sql,
     function (err, rows) {
@@ -27,7 +27,7 @@ exports.userMathQuestions = function(User, callback){
 exports.userGrammarQuestions = function(User ,callback){
   var conn = createConnection();
   conn.connect();
-  var sql = "select questions.Id,questions.Question,questions.Option1,questions.Option2,questions.Option3,questions.Option4,questions.Answer from questions,users where questions.Id >=users.GrammarQuestionIndex  && questions.Theme ='Grammar' && users.Id ="+User;
+  var sql = "select questions.Id,questions.Question,questions.Option1,questions.Option2,questions.Option3,questions.Option4,questions.Option5,questions.Answer from questions,users where questions.Id >=users.GrammarQuestionIndex  && questions.Theme ='Grammar' && users.Id ="+User;
   conn.query(sql,
     function (err, rows) {
       if(!err)

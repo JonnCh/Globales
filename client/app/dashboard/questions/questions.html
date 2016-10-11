@@ -1,27 +1,33 @@
 <md-card layout="column">
-  <form ng-submit="answerCurrentQuestion()">
-    <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Práctica de {{theme=='Math'?'Matemática':'Español'}}</h1>
-    </md-toolbar>
+  <div ng-show="!showQuestions">
     <md-card-content layout="column" layout-align="space-between">
-      <div layout="row"  layout-fill>
-        <div layout"row">
+      Por el momento no tenemos más preguntas para ti.
+    </md-card-content>
+  </div>
+    <form ng-submit="answerCurrentQuestion()" ng-show="showQuestions">
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">{{themeTitle}}</h1>
+      </md-toolbar>
+      <md-card-content layout="column" layout-align="space-between">
+        <div layout="row"  layout-fill>
+          <div layout"row">
             <label ng-bind="currentQuestion.Question"></label>
+          </div>
         </div>
-      </div>
-      <br/>
+        <br/>
         <md-divider></md-divider>
-      <br/>
-      <div layout="row"  layout-fill>
-        <div layout"row">
+        <br/>
+        <div layout="row" layout-fill>
+          <div layout"row">
             <md-radio-group ng-model="currentAnswer" require>
               <md-radio-button ng-value="currentQuestion.Option1" class="md-primary" require>{{currentQuestion.Option1}}</md-radio-button>
               <md-radio-button ng-value="currentQuestion.Option2" class="md-primary" require>{{currentQuestion.Option2}}</md-radio-button>
               <md-radio-button ng-value="currentQuestion.Option3" class="md-primary" require>{{currentQuestion.Option3}}</md-radio-button>
               <md-radio-button ng-value="currentQuestion.Option4" class="md-primary" require>{{currentQuestion.Option4}}</md-radio-button>
+              <md-radio-button ng-value="currentQuestion.Option5" class="md-primary" require>{{currentQuestion.Option4}}</md-radio-button>
             </md-radio-group>
+          </div>
         </div>
-      </div>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
         <md-button class="md-raised md-primary" type='submit'>Aceptar</md-button>
@@ -29,3 +35,11 @@
       </md-card-actions>
     </form>
   </md-card>
+  <md-divider md-inset></md-divider>
+  <md-card layout="column">
+    <form ng-submit="saveProgress()">
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-raised md-primary" type='submit'>Guardar Progreso</md-button>
+      </md-card-actions>
+    </form>
+</md-card>
