@@ -8,11 +8,30 @@ var customMySQL = require('../Database/db');
 exports.login = function(req, res) {
   if(req.query.UserName && req.query.Password){
       customMySQL.login(req.query.UserName, req.query.Password, function(data){
-            console.log(data);
         if(data == 1){
-            res.status(200).send('OK');
+            customMySQL.getUserId(req.query.UserName, req.query.Password, function(data){
+                if(data!=-1){
+                  res.json(data);
+                }else{
+                    res.status(401).send('ERROR');
+                }
+            });
         }else{
             res.status(401).send('ERROR');
+        }
+      });
+    }else{
+      res.status(401).send('ERROR');
+    }
+};
+
+exports.singup = function(req, res) {
+  if(req.query.Name && req.query.UserName && req.query.Password){
+      customMySQL.singup(req.query.Name,req.query.UserName,req.query.Password, function(data){
+        if(data == true){
+            res.status(200).send('OK');
+        }else{
+            res.status(500).send('ERROR');
         }
       });
     }else{

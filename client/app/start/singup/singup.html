@@ -10,28 +10,30 @@
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>Nombre</label>
-            <input ng-model="user.Name" required>
+            <input ng-model="Name" required>
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>Nombre de Usuario</label>
-            <input ng-model="user.UserName"  required>
+            <input ng-model="UserName"  required>
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>Contraseña</label>
-            <input ng-model="user.Password" required>
+            <input ng-model="Password" type="password" required>
           </md-input-container>
         </div>
         <md-card-actions layout="row" layout-align="end center">
-          <md-input-container class="md-block" flex-gt-sm>
-            <md-button class="md-raised md-primary" type="submit">Aceptar</md-button>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <md-button class="md-raised md-primary" href="/start">Cancelar</md-button>
-          </md-input-container>
+          <div layout="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <md-button class="md-raised md-primary" type="submit">Aceptar</md-button>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <md-button class="md-raised md-primary" href="/start">Cancelar</md-button>
+            </md-input-container>
+          </div>
         </md-card-actions>
       </form>
     </md-card>

@@ -15,6 +15,7 @@ angular.module('globalesApp')
   };
   $scope.login = function(){
     $http.get("/api/auth/login?UserName="+$scope.UserName+"&Password="+$scope.Password).success(function(data){
+      sessionStorage.setItem('userId', data);
       $window.location.href = '/dashboard';
     }).error(function(error){
       showAlert("Usuario o Contraseña incorrecta");

@@ -1,0 +1,56 @@
+
+<md-card layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span>Puntuaciones de {{UserName}}</span>
+    </div>
+  </md-toolbar>
+  <md-card-content layout="column" layout-align="space-between">
+    <md-content>
+      <div>
+        <div layout-gt-sm="row">
+          <md-input-container  class="md-block" flex-gt-sm>
+            <input style="font-weight:bold;" readonly  value="Puntuaciones de Matemática"></input>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input readonly="true" value="Total de respuestas correctas {{MathCorrectAnswers}}"></label>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input readonly="true" value="Total de respuestas incorrectas {{MathIncorrectAnswers}}"></label>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input readonly="true" value="Promedio de matemática {{(100/(MathCorrectAnswers+MathIncorrectAnswers))*MathCorrectAnswers | number}}"></label>
+          </md-input-container>
+        </div>
+      </div>
+      <div>
+        <div layout-gt-sm="row">
+          <md-input-container  class="md-block" flex-gt-sm>
+            <input readonly style="font-weight:bold;"  value="Puntuaciones de Gramática"></input>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input readonly="true" value="Total de respuestas correctas {{GrammarCorrectAnswers}}"></label>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input readonly="true" value="Total de respuestas incorrectas {{GrammarIncorrectAnswers}}"></label>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <input  readonly="true" value="Promedio de gramática {{(100/(GrammarCorrectAnswers+GrammarIncorrectAnswers))*GrammarCorrectAnswers | number}}"></label>
+          </md-input-container>
+        </div>
+      </div>
+    </md-content>
+  </md-card-content>
+</md-card>
